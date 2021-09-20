@@ -10,7 +10,7 @@ import EditClients from './components/pages/edit.component';
 const App=()=> {
   return (
     <Router>
-      <div>
+      <div >
         <Navbar/>
       <Switch>   
               <Route path="/" exact><ClienstRegistered/></Route>          

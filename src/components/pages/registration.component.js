@@ -39,13 +39,13 @@ const Registration = () => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-            console.log("Submit form => check the client object: ",client)
+            console.log("Submit form => check the client object: ", client)
             axios.post(API_ADD, {
                 client
                 }
             )
         .then((res) =>{
-            console.log(res.data);
+            console.log("result is ", res.data);
                 if(res.data.isPhoneNumber === true){
                     alert(res.data.msg);
                     history.push('/');
@@ -120,13 +120,14 @@ const Registration = () => {
                     </div> 
 
                     <div className="form-group">  
-                        <input type="submit" value="Register" className="btn btn-primary" />
+                        <input type="submit" value="Register" className="btn btn-primary" style={{margin: '16px'}} />
                     </div>                
                 </form>
             </div>
             </div>
         </>
     )
+
 };
 
 export default Registration;

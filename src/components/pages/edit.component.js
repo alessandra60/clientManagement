@@ -97,33 +97,36 @@ export default class EditClients extends Component {
         "http://localhost:5000/users/update/" + this.props.match.params.id,
         user
       )
-      .then((res) => {
-        console.log(res.data)
-        if(res.data.isPhoneNumber === true){
-          alert(res.data.msg);
-          this.props.history.push("/");
-        }else{
-          alert(res.data.msg);
-        }
-      }); 
+        .then((res) => {
+          console.log(res.data)
+            if(res.data.isPhoneNumber === true){
+              alert(res.data.msg);
+              this.props.history.push("/");
+            }else{
+              alert(res.data.msg);
+            }
+      }
+    ); 
   }
 
   render() {
     return (
       <div>
         <h3>Edit Profile</h3>
-        <div style={{ marginLeft: '10%', marginRight: '10%' }}>
-        <form onSubmit={this.onSubmit}>
+
+          <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+            <form onSubmit={this.onSubmit}>
           <div className="form-group">
             <label>Name: </label>
-            <input
-              type="text"
-              required
-              className="form-control"
-              value={this.state.name}
-              onChange={this.onChangeClientName}
-            />
+              <input
+                type="text"
+                required
+                className="form-control"
+                value={this.state.name}
+                onChange={this.onChangeClientName}
+              />
           </div>
+
           <div className="form-group">
             <label>Phone: </label>
             <input
@@ -145,6 +148,7 @@ export default class EditClients extends Component {
               onChange={this.onChangeClientEmail}
             />
           </div>
+
           <div className="form-group">
             <label>Company: </label>
             <input
@@ -153,6 +157,7 @@ export default class EditClients extends Component {
               value={this.state.company}
               onChange={this.onChangeClientCompany}
             />
+
           </div>
           <div className="form-group">
             <label>Role: </label>
@@ -162,6 +167,7 @@ export default class EditClients extends Component {
               value={this.state.role}
               onChange={this.onChangeClientRole}
             />
+
           </div>
           <div className="form-group">
             <label>Description: </label>
@@ -172,8 +178,9 @@ export default class EditClients extends Component {
               onChange={this.onChangeClientDescription}
             />
           </div>
+          
           <div className="button floatLeft">
-            <button type="submit" onClick={this.handleSubmit} className="btn btn-primary" > SUBMIT </button>
+            <button type="submit" onClick={this.handleSubmit} className="btn btn-primary" style={{margin: '16px'}}> SUBMIT </button>
           </div>         
         </form>
         </div>

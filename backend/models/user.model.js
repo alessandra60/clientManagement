@@ -16,7 +16,7 @@ const userSchema = new Schema({
     phone: {
         type: Number,
         required: true,
-        maxlength: 10
+        maxlength: 11
     },
     email: {
         type: String,
