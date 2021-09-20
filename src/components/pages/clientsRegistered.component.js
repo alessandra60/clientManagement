@@ -13,7 +13,9 @@ const ClienstRegistered=()=>{
   }, [clients]);
 
     return(
+    
     <div style={{ marginLeft: '10%', marginRight: '10%', marginTop: '5%' }}>
+      <h3>Clients Resgistered</h3>
       <Table striped bordered hover> 
        <thead>
             <tr>
