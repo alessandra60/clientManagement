@@ -42,7 +42,7 @@ router.post('/add', function(req, res) {
 //******DELETE ROUTE*******
  router.delete('/delete/:id', function(req, res){
     User.findByIdAndDelete(req.params.id)
-    .then(()=>res.json("Are you sure you want to delete this client?"))
+    .then(()=>res.json("User deleted"))
     .catch(err=>res.status(400).json('Error:'+ err));
 }); 
 

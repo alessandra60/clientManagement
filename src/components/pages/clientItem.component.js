@@ -5,16 +5,20 @@ import { Link } from 'react-router-dom';
 
 //**DELETE FUNCTION  */
 const ClientItem = (props) =>{
+
   const deleteHandler = (id) => {
-    let url = `http://localhost:5000/users/delete/${id}`
-    axios.delete(url)
-    .then(res =>{
-      alert(res.data);
+    let url = `http://localhost:5000/users/delete/${id}`;
+    const result =  window.confirm("Are you sure you want to delete this client?");
+    if(result){
+      axios.delete(url)
+      .then(res =>{
+        window.alert(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      })
       window.location.reload();
-    })
-    .catch(err => {
-      console.log(err);
-    })
+    }
   }  
   
   return(
