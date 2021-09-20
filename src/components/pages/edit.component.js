@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+//**COMPONENT  EDIT CLIENTS REGISTERED  */
+
 export default class EditClients extends Component {
   constructor(props) {
     super(props);
@@ -27,7 +29,6 @@ export default class EditClients extends Component {
     axios
       .get("http://localhost:5000/users/update/" +this.props.match.params.id)
       .then((response) => {
-        //console.log(response);
         this.setState({
           name: response.data.name,
           phone: response.data.phone,

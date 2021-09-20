@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
 import ClientItem from './clientItem.component';
 
-
+//**COMPONENT TO SHOW CLIENTS REGISTERED  */
 const ClienstRegistered=()=>{
   const[clients, setClients] = useState([]);
 
@@ -13,7 +13,8 @@ const ClienstRegistered=()=>{
   }, [clients]);
 
     return(
-    <Table striped bordered hover>
+    <div style={{ marginLeft: '10%', marginRight: '10%' }}>
+      <Table striped bordered hover> 
        <thead>
             <tr>
               <th>Name</th>
@@ -25,16 +26,16 @@ const ClienstRegistered=()=>{
               <th>#</th>
               <th>#</th>
             </tr>
-          </thead>
+        </thead>
           <tbody>
-          {clients.map(
-          client => {
-            return <ClientItem client={client}/>
-          }
-        )}
+            {clients.map(client => {
+                return <ClientItem client={client}/>
+                }
+              )
+            }
           </tbody>
-        
-      </Table>
+          </Table>
+    </div>     
   );
 }
  

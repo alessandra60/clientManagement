@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-//**COMPONENT TO LIST ALL CLIENTS REGISTERED */
+//**COMPONENT TO SHOW CLIENTS REGISTERED  AND MAKE DELETE  */
 
-//**DELETE FUNCTION  */
+//**DELETE FUNCTION- DELETE BY ID CLIENTS IN THE LIST  */
 const ClientItem = (props) =>{
 
   const deleteHandler = (id) => {
-    let url = `http://localhost:5000/users/delete/${id}`;
+    let url = `http://localhost:5000/users/delete/${id}`; 
+   
     const result =  window.confirm("Are you sure you want to delete this client?");
     if(result){
       axios.delete(url)

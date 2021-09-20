@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import { API_ADD } from '../constant';
 
+//**COMPONENT  TO REGISTER CLIENTS  */
 
 const Registration = () => {
     
@@ -38,58 +39,60 @@ const Registration = () => {
     
     const submitHandler = (e) => {
         e.preventDefault();
-        console.log("Submit form => check the client object: ",client)
-        axios.post(API_ADD, {
-            client
-        })
+            console.log("Submit form => check the client object: ",client)
+            axios.post(API_ADD, {
+                client
+                }
+            )
         .then((res) =>{
             console.log(res.data);
-            if(res.data.isPhoneNumber === true){
-                alert(res.data.msg);
-                history.push('/');
-               
-            }else{
-                alert(res.data.msg)
-            }        
-        })
-        .catch((err) =>{
-            console.log(err)
-            alert("Invalid input, try again.")
-        })
+                if(res.data.isPhoneNumber === true){
+                    alert(res.data.msg);
+                    history.push('/');
+                }else{
+                    alert(res.data.msg)
+                }        
+            }
+        )
+            .catch((err) =>{
+                console.log(err)
+                    alert("Invalid input, try again.")
+            }
+        )
     }
 
     return(
         <>
         <div>
             <h3>Registration</h3>
+            
             <div style={{ marginLeft: '10%', marginRight: '10%' }}>
                 <form onSubmit={submitHandler}>
                     <div className="form-group"> 
-
-                        <label>Name: </label>
+                        <label>Name *: </label>
                         <input  
                         type="text"
-                        placeholder="*" 
+                        placeholder="Field Required" 
                         required 
                         className="form-control" 
                         value={client.name} 
                         onChange={onChangeClientName}
                         />
                      
-                        <label>Phone: </label>
+                        <label>Phone *: </label>
                         <input  
                         type="string"
-                        placeholder="*"  
+                        placeholder="Field Required"  
                         required 
                         className="form-control" 
                         value={client.phone} 
                         onChange={onChangeClientPhone}
                         /> 
 
-                        <label>Email: </label>
+                        <label>Email*: </label>
                         <input  
                         type="email"
-                        placeholder="*" 
+                        placeholder="Field Required" 
                         required 
                         className="form-control" 
                         value={client.email} 
@@ -124,7 +127,6 @@ const Registration = () => {
             </div>
         </>
     )
-
 };
 
 export default Registration;
